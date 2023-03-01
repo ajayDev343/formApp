@@ -1,0 +1,145 @@
+<%- include('layout/header.ejs'); %>
+    <%- include('layout/navbar.ejs'); %>
+        <div class="app-content content">
+            <div class="content-wrapper">
+                <div class="content-wrapper-before"></div>
+                <div class="content-header row">
+                    <div class="content-header-left col-md-12 col-12 mb-2">
+                        <div style="float: right; ">
+                            <a href="#" id="back_button" class="btn btn-primary m-t-15 waves-effect pull-right"
+                                style="margin-top: 0px;">Back</a>
+                        </div>
+                        <h3 class="content-header-title mb-0 d-inline-block"> User Detail</h3>
+
+
+                    </div>
+                </div>
+                <div class="content-body">
+                    <section>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">User Detail</h4>
+
+
+                                    </div>
+                                    <div class="card-content collapse show">
+                                        <div class="card-body pt-0 pb-1 row">
+                                            <br>
+                                            <div class="col-md-12">
+
+                                                <p>
+                                                    <b>Image</b> : <% if(response.profile_image=="" ) { %>
+                                                        <img id="blah2" style="height: 50px;
+                                                    width: 50px;
+                                                    border-radius: 50%;" src="../images/img.jpg" alt="User">
+                                                        <% } else { %>
+                                                            <img id="blah2" style="height: 50px;
+                                                    width: 50px;
+                                                    border-radius: 50%;" src="<%=response.profile_image%>" alt="User">
+                                                            <% } %>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>UserName</b> : <%=response.username%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Email</b> : <%=response.email%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>First Name</b> : <%=response.firstName%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Last Name</b> : <%=response.lastname%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Phone</b> : <%=response.phone%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Location</b> : <%=response.location%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Date Of Birth</b> : <%=response.dob%>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Identifying Information</h4>
+                                    </div>
+                                    <div class="card-content collapse show">
+                                        <div class="card-body pt-0 pb-1 row">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p class="align-left">
+                                                    <b>​Height</b> : <%=response.height%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>​Weight</b> : <%=response.weight%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Natural eye color</b> : <%=response.eyeColor%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>​Natural hair color</b> : <%=response.hairColor%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Description of scars/tattoo locations</b> : <%=response.tatto%>
+                                                </p>
+                                                <p>
+                                                    <b>Scars/Tattoo Image</b> : <% if(response.tattoImage=="" ) { %>
+                                                        <img id="blah2" style="height: 50px;
+                                                     width: 50px;
+                                                     border-radius: 50%;" src="../images/img.jpg" alt="User">
+                                                        <% } else { %>
+                                                            <img id="blah2" style="height: 50px;
+                                                     width: 50px;
+                                                     border-radius: 50%;" src="<%=response.tattoImage%>" alt="User">
+                                                            <% } %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Health information</h4>
+                                    </div>
+                                    <div class="card-content collapse show">
+                                        <div class="card-body pt-0 pb-1 row">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p class="align-left">
+                                                    <b>​Blood type</b> : <%=response.bloodType%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>​Chronic Illnesses</b> : <%=response.chronic%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>Allergies to medicine</b> : <%=response.allergies%>
+                                                </p>
+                                                <p class="align-left">
+                                                    <b>​Previous surgeries</b> : <%=response.surgeries%>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+
+
+        <%- include('layout/footer.ejs'); %>

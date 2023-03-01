@@ -1,0 +1,355 @@
+<% include  layout/header.ejs %>
+<% include  layout/navbar.ejs %>
+<div class="app-content content">
+	<div class="content-wrapper">
+		<div class="content-wrapper-before"></div>
+		<div class="content-header row">
+			<div class="content-header-left col-md-8 col-12 mb-2">
+				<h3 class="content-header-title mb-0 d-inline-block">Add Key</h3>
+
+			</div>
+		</div>
+		<div class="content-body">
+			<!-- Basic form layout section start -->
+			<section id="basic-form-layouts">
+				<div class="row match-height">
+					<div class="col-md-12">
+						<div class="card" style="height: auto;">
+							<div class="card-header">
+
+								<div class="heading-elements">
+									<ul class="list-inline mb-0">
+										<li>
+											<a data-action="collapse">
+												<i class="ft-minus"></i>
+											</a>
+										</li>
+										<li>
+											<a data-action="expand">
+												<i class="ft-maximize"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-content collapse show">
+								<div class="card-body">
+									<form  enctype='multipart/form-data' method="post" action="createkey" id="Contracts" >
+										<div class="form-body">
+											<h4 class="form-section">
+												<i class="ft-flag"></i> Key Info</h4>
+												<div class="row clearfix">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" class="">Name</label>
+															<div class="form-line">
+																<input type="text" id="Contractname" name="name" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" class="">Phone Number</label>
+															<div class="form-line">
+																<input type="text" name="phone" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="row clearfix">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label  class="">Email Address</label>
+															<div class="form-line">
+																<input type="email" name="email" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" class="">Address</label>
+															<div class="form-line">
+																<input type="text" name="address" class="form-control" placeholder="" id="address" >
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="row clearfix">  
+													<div class="col-sm-6" >
+														<div class="form-group ">
+															<label for="Phone" class="">Start Date</label>
+															<div class="form-line" >
+																<input type="date" name="start_date" id="txtDate"  class="form-control " required>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" class="">Key Number</label>
+															<div class="form-line">
+																<input type="text" name="key_number" class="form-control" placeholder="" id="key_number" >
+															</div>
+														</div>
+													</div>
+
+												</div>      
+												<div class="row clearfix">
+													<div class="col-sm-6">
+														<div class="form-group ">
+															<label for="Phone" class="">Contract type</label>
+															<div class="form-line" >
+																<select name="contract_type" class="form-control" required >
+																	<option value="" > Select Contract type </option>
+																	<% for(let i in cat_data) { %>
+
+																	<option value="<%=cat_data[i].id%>" ><%=cat_data[i].name%></option>		
+																	<% } %>										
+																</select>
+															</div>
+														</div>
+													</div> 
+													<div class="col-sm-6">
+														<div class="form-group ">
+															<label for="Phone" class="">Users</label>
+															<div class="form-line" >
+																<select name="user_id" class="form-control" required >
+																	<option value="" > Select User </option>
+																	<% for(let i in users_data) { %>
+
+																	<option value="<%=users_data[i].id%>" ><%=users_data[i].username%></option>		
+																	<% } %>										
+																</select>
+															</div>
+														</div>
+													</div> 
+
+												</div>   
+							<!-- <div class="row clearfix">
+
+								<div class="col-sm-6">
+										<div class="form-group" style="" >
+											 <label>Contract Document</label>
+											
+										</div>
+										<div class="form-group" style="">
+											<div class="form-line">
+												<input type="file" id="" name="document" class="form-control"  placeholder="Image">
+											</div>
+										</div>
+								</div>	
+							</div> -->
+
+							<div class="row clearfix">
+								<div class="col-sm-4">
+									<div class="form-group" style="text-align: center;" >
+										<label>Key Image</label>
+										<div class="image2">
+											<img id="blah2" src="../images/img.jpg"  alt="Contract">
+										</div>
+									</div>
+									<div class="form-group" style="display:none">
+										<div class="form-line">
+											<input type="file" id="profieimage" name="key_image" class="form-control" required placeholder="Image">
+										</div>
+									</div>
+								</div>	
+								<div class="col-sm-4">
+									<div class="form-group"style="text-align: center;">
+										<label>Client Sign Image</label>
+										<div class="image2">
+											<img id="blah3" src="../images/img.jpg"  alt="Contract">
+										</div>
+									</div>
+									<div class="form-group" style="display:none">
+										<div class="form-line">
+											<input type="file" id="profieimage1" name="client_sign" class="form-control" required placeholder="Image">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group"style="text-align: center;">
+										<label>Employee Sign Image</label>
+										<div class="image2">
+											<img id="blah4" src="../images/img.jpg"  alt="Contract">
+										</div>
+									</div>
+									<div class="form-group" style="display:none">
+										<div class="form-line">
+											<input type="file" id="profieimage2" name="employee_sign" class="form-control" required placeholder="Image">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">
+								<i class="la la-check-square-o"></i> Save
+							</button>
+							<button type="reset" class="btn btn-danger mr-1">
+								<i class="ft-x"></i> Reset
+							</button>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+<!-- // Basic form layout section end -->
+</div>
+</div>
+</div>
+<% include  layout/footer.ejs %>
+
+
+<script type="text/javascript">
+
+	$('#blah2').click(function(){
+		$('#profieimage').click();
+	});
+	$('#blah3').click(function(){
+		$('#profieimage1').click();
+	});
+	$('#blah4').click(function(){
+		$('#profieimage2').click();
+	});
+	
+	$("#profieimage1").change(function() {
+		var ext = $('#profieimage1').val().split('.').pop().toLowerCase(); 
+		if($.inArray(ext, ['gif','png','jpg','jpeg','svg']) == -1)
+		{
+			swal ( "Oops" , "invalid Image extension!'" ,  "error" );
+			$("#blah3").attr('src','../images/user.png');
+			$("#profieimage1").val("");
+		}
+		else {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#blah3').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(this.files[0]);
+			}
+		}
+
+	});
+	$("#profieimage2").change(function() {
+		var ext = $('#profieimage2').val().split('.').pop().toLowerCase(); 
+		if($.inArray(ext, ['gif','png','jpg','jpeg','svg']) == -1)
+		{
+			swal ( "Oops" , "invalid Image extension!'" ,  "error" );
+			$("#blah4").attr('src','../images/user.png');
+			$("#profieimage2").val("");
+		}
+		else {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#blah4').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(this.files[0]);
+			}
+		}
+
+	});
+
+	$.validator.addMethod("lettersonly", function (value, element) {
+		return this.optional(element) || /^[^-\s][a-zA-Z ]+$/i.test(value);
+	}, 'Please enter valid name');
+	jQuery.validator.addMethod("Email", function(value, element) {
+		return this.optional( element ) || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( value );
+	}, 'Please enter a valid email address.');
+	jQuery.validator.addMethod("countrycode", function(value, element) {
+		return this.optional( element ) ||/^\+?\d+$/.test( value );
+	},'Please enter a valid Country code.');
+	$.validator.addMethod("country", function (value, element) {
+		return this.optional(element) || /^[^-\s][a-zA-Z\s-]+$/i.test(value);
+	}, 'Please enter valid Country Name');
+	
+	$("#Contracts").validate({
+		rules: {
+			name: {
+				required: true,
+				lettersonly: true
+			},
+			email: {
+				required: true,
+				Email: true
+			},
+			country:{
+				required:true,
+				country:true
+			},
+			key_number:{
+				required:true,
+				minlength:6,
+			},
+			city:{
+				required:true,
+			},
+			age:{
+				required:true,
+			},
+			dob:{
+				required:true,
+			},
+			image:{
+				required:true,
+			}
+		},
+		messages: {
+			name: {
+				required: "Name field is required."
+
+			},
+			email: {
+				required: "Email field is required.",
+			},
+			country: {
+				required: "Country field is required."
+			},
+			key_number:{
+				required: "key_number field is required.",
+				minlength: "key_number atleast 6 character long."
+			},
+			dob:{
+				required: "Date of Birth field is required"
+			},
+			city:{
+				required:"City field is required."
+			},
+			age:{
+				required: "Age field is required"
+			},
+			image:{
+				required: "Please select any image"
+			}
+
+		}
+
+	});
+
+	var dateControler = {
+		currentDate : null
+	}
+
+	$(document).on( "change", "#txtDate",function( event, ui ) {
+		var now = new Date();
+		var selectedDate = new Date($(this).val());
+		
+		if(selectedDate > now) {
+			$(this).val(dateControler.currentDate)
+		} else {
+			dateControler.currentDate = $(this).val();
+		}
+	});
+</script>

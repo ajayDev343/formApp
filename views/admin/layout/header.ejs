@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Chameleon Admin is a modern Bootstrap 4 webapp &amp; admin dashboard html template with a large number of components, elegant design, clean and organized code.">
+    <meta name="keywords" content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
+    <meta name="author" content="ThemeSelect">
+    <title><%=app_name%> | Admin Panel </title>
+    <link rel="apple-touch-icon" href="../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/charts/chartist.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/charts/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/file-uploaders/dropzone.min.css">
+     <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/forms/icheck/icheck.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/forms/icheck/custom.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/timeline/vertical-timeline.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/forms/toggle/switchery.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/fonts/simple-line-icons/style.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/pages/timeline.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/plugins/file-uploaders/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/pages/dashboard-ecommerce.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <!-- END: Custom CSS-->
+    <style type="text/css">
+        .switchery{
+                height: 16px !important;
+        }
+    </style>
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu-modern" data-color="bg-chartbg" data-col="2-columns">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-dark">
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse show" id="navbar-mobile">
+                    <ul class="nav navbar-nav mr-auto float-left">
+                       
+                    </ul>
+                    <ul class="nav navbar-nav float-right">
+                        <!-- <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="../admin/notifiaction"><i class="ficon ft-bell bell-shake" id="notification-navbar-link"></i><span id="" class="badge badge-pill badge-sm badge-info badge-up badge-glow badge_count">0</span></a>
+                            
+                        </li> -->
+                        
+                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"> <span class="avatar avatar-online">
+                             <% if (sessiondata.user.image=="") { %>
+                            <img src="../images/user.png" width="38" height="48" alt="User" />
+                          <% } else { %>
+                            <img src="<%=sessiondata.user.image%>" width="38" height="48" alt="User" />
+                            <% } %>
+                            <!-- <img src="../app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"> -->
+
+                            <i></i></span></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="arrow_box_right"><a class="dropdown-item" href="#"><span class="avatar avatar-online">
+                                   <% if (sessiondata.user.image=="") { %>
+                            <img src="../images/user.png" width="38" height="48" alt="User" />
+                          <% } else { %>
+                            <img src="<%=sessiondata.user.image%>" width="38" height="48" alt="User" />
+                            <% } %><span class="user-name text-bold-700 ml-1"><%=sessiondata.user.name %></span></span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="../admin/profile"><i class="ft-user"></i> Edit Profile</a>
+                                    <a class="dropdown-item" href="../admin/logout"><i class="ft-power"></i> Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Header-->
+     <%if(msg && msg!=''){%>
+     <!-- <div class=" col-md-4 alert round bg-info alert-icon-right alert-dismissible mb-2" role="alert">
+                                            
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <%=msg%>
+                                        </div> -->
+         <div data-notify="container" id="msg" class="round bootstrap-notify-container alert alert-dismissible bg-info p-r-35 animated bounceInRight" role="alert" data-notify-position="top-left" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s; z-index: 1031; top: 20px; right: 20px;"><span data-notify="icon"></span> <span data-notify="title"></span> <span data-notify="message"><%=msg%></span> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button></div>
+     <% }%>

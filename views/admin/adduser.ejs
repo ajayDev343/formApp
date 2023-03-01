@@ -1,0 +1,272 @@
+﻿<% include  layout/header.ejs %>
+<% include  layout/navbar.ejs %>
+<div class="app-content content">
+	<div class="content-wrapper">
+		<div class="content-wrapper-before"></div>
+		<div class="content-header row">
+			<div class="content-header-left col-md-8 col-12 mb-2">
+				<h3 class="content-header-title mb-0 d-inline-block">Add User</h3>
+
+			</div>
+		</div>
+		<div class="content-body">
+			<!-- Basic form layout section start -->
+			<section id="basic-form-layouts">
+				<div class="row match-height">
+					<div class="col-md-12">
+						<div class="card" style="height: auto;">
+							<div class="card-header">
+								
+								<div class="heading-elements">
+									<ul class="list-inline mb-0">
+										<li>
+											<a data-action="collapse">
+												<i class="ft-minus"></i>
+											</a>
+										</li>
+										<li>
+											<a data-action="expand">
+												<i class="ft-maximize"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-content collapse show">
+								<div class="card-body">
+									<form class="form"  enctype='multipart/form-data' method="post" action="createuser" id="users"  >
+										<div class="form-body">
+											<h4 class="form-section">
+												<i class="ft-flag"></i> User Info</h4>
+												<div class="form-group">
+													<label>User Profile Image</label>
+													<div class="image2">
+														<img id="blah2" src="../images/img.jpg"  alt="User">
+													</div>
+												</div>
+												<div class="form-group" style="display:none">
+													<div class="form-line">
+														<input type="file" id="profieimage" name="image" class="form-control" required placeholder="Image">
+													</div>
+												</div>
+												<div class="row clearfix">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" >Name of the User</label>
+															<div class="form-line">
+																<input type="text" id="username" name="name" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="">Phone number</label>
+															<div class="form-line">
+																<input type="text" name="phone" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="row clearfix">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label >Email Address</label>
+															<div class="form-line">
+																<input type="email" name="email" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" >Password</label>
+															<div class="form-line">
+																<input type="password" name="password" class="form-control" placeholder="" id="password" >
+																<i toggle="#password"  class="ft-eye field-icon toggle-password" ></i>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- <div class="row clearfix"  >  
+													<div class="col-sm-6" >
+														<div class="form-group ">
+															<label for="Phone" >Date of Birth</label>
+															<div class="form-line" >
+																<input type="date" name="dob" id="txtDate"  class="form-control " >
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" >Gender</label>
+															<div class="col-sm-10">
+																<div class="">
+																	<input type="radio" id="male" checked name="gender" value="1">
+																	<label class="label-text"  for="male">Male</label>
+																	<input type="radio" id="female"  name="gender" value="2">
+																	<label class="label-text" for="female">Female</label>
+																</div> 
+															</div>
+														</div>
+													</div>  
+												</div> -->
+												<!-- <div class="row clearfix">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label >Address</label>
+															<div class="form-line">
+																<input type="text" name="address" class="form-control" placeholder="" required>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="" >Role</label>
+															<div class="form-line">
+																<input type="text" name="" class="form-control" placeholder="" id=""  value="Employee" readonly >
+																
+															</div>
+														</div>
+													</div>
+												</div> -->
+
+												<div class="form-actions">
+													<button type="submit" class="btn btn-primary">
+														<i class="la la-check-square-o"></i> Save
+													</button>
+													<button type="reset" class="btn btn-danger mr-1">
+														<i class="ft-x"></i> Reset
+													</button>
+													
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- // Basic form layout section end -->
+				</div>
+			</div>
+		</div>
+
+		<% include  layout/footer.ejs %>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/geocomplete/1.7.0/jquery.geocomplete.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeE84dgZLx40n1DwZUS6Cggul9dARQhtk&libraries=places"></script>
+
+		<script type="text/javascript">
+			$(".toggle-password").click(function() {
+
+			  // $(this).toggleClass("fa-eye fa-eye-slash");
+			  var input = $($(this).attr("toggle"));
+			  if (input.attr("type") == "password") {
+			    input.attr("type", "text");
+			    $(this).addClass('ft-eye-off');
+			    $(this).removeClass('ft-eye');
+
+			  } else {
+			    input.attr("type", "password");
+			    $(this).addClass('ft-eye');
+			    $(this).removeClass('ft-eye-off');
+			    
+			    
+			  }
+			});
+			$('#blah2').click(function(){
+				$('#profieimage').click();
+			});
+
+
+			$.validator.addMethod("lettersonly", function (value, element) {
+				return this.optional(element) || /^[^-\s][a-zA-Z ]+$/i.test(value);
+			}, 'Please enter valid name');
+			jQuery.validator.addMethod("Email", function(value, element) {
+				return this.optional( element ) || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( value );
+			}, 'Please enter a valid email address.');
+			jQuery.validator.addMethod("countrycode", function(value, element) {
+				return this.optional( element ) ||/^\+?\d+$/.test( value );
+			},'Please enter a valid Country code.');
+			$.validator.addMethod("country", function (value, element) {
+				return this.optional(element) || /^[^-\s][a-zA-Z\s-]+$/i.test(value);
+			}, 'Please enter valid Country Name');
+
+			$("#users").validate({
+				rules: {
+					name: {
+						required: true,
+						lettersonly: true
+					},
+					email: {
+						required: true,
+						Email: true
+					},
+					country:{
+						required:true,
+						country:true
+					},
+					password:{
+						required:true,
+						minlength:6,
+					},
+					city:{
+						required:true,
+					},
+					age:{
+						required:true,
+					},
+					dob:{
+						required:true,
+					},
+					image:{
+						required:true,
+					}
+				},
+				messages: {
+					name: {
+						required: "Name field is required."
+
+					},
+					email: {
+						required: "Email field is required.",
+					},
+					country: {
+						required: "Country field is required."
+					},
+					password:{
+						required: "Password field is required.",
+						minlength: "Password atleast 6 character long."
+					},
+					dob:{
+						required: "Date of Birth field is required"
+					},
+					city:{
+						required:"City field is required."
+					},
+					age:{
+						required: "Age field is required"
+					},
+					image:{
+						required: "Please select any image"
+					}
+
+				}
+
+			});
+
+			var dateControler = {
+				currentDate : null
+			}
+
+			$(document).on( "change", "#txtDate",function( event, ui ) {
+				var now = new Date();
+				var selectedDate = new Date($(this).val());
+
+				if(selectedDate > now) {
+					$(this).val(dateControler.currentDate)
+				} else {
+					dateControler.currentDate = $(this).val();
+				}
+			});
+		</script>

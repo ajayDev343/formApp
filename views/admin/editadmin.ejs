@@ -1,0 +1,238 @@
+﻿<% include  layout/header.ejs %>
+<% include  layout/navbar.ejs %>
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-wrapper-before"></div>
+    <div class="content-header row">
+      <div class="content-header-left col-md-12 col-12 mb-2">
+        <div style="float: right; ">
+         <a href="#" id="back_button" class="btn btn-primary m-t-15 waves-effect pull-right" style="margin-top: 0px;">Back</a>
+       </div>
+       <h3 class="content-header-title mb-0 d-inline-block">Edit Company</h3>
+
+     </div>
+   </div>
+   <div class="content-body">
+    <!-- Basic form layout section start -->
+    <section id="basic-form-layouts">
+      <div class="row match-height">
+        <div class="col-md-12">
+          <div class="card" style="height: auto;">
+            <div class="card-header">
+
+              <div class="heading-elements">
+                <ul class="list-inline mb-0">
+                  <li>
+                    <a data-action="collapse">
+                      <i class="ft-minus"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-action="expand">
+                      <i class="ft-maximize"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card-content collapse show">
+              <div class="card-body">
+                <form  enctype='multipart/form-data' method="post" action="updateadmin" id="users">
+                 <div class="form-body">
+                  <h4 class="form-section">
+                    <i class="ft-flag"></i>Company Info</h4>
+                    <input type="hidden" name="hiddenimage" value="<%=admins_data.image%>" >
+                    <input type="hidden" name="id" value="<%=admins_data.id%>" >
+
+                    <div class="form-group">
+                     <label>Profile Image</label>
+                     <div class="image2">
+                      <% if(admins_data.image=="") { %>
+                      <img id="blah2" src="../images/img.jpg"  alt="User">
+                      <% } else { %>
+                      <img id="blah2" src="<%=admins_data.image%>"  alt="User">
+                      <% } %>
+                    </div>
+                  </div>
+                  <div class="form-group" style="display:none">
+                    <div class="form-line">
+                      <input type="file" id="profieimage" accept="images/*" name="image" class="form-control" placeholder="Image">
+                    </div>
+                  </div>
+                  <div class="row clearfix">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Name</label>
+                        <div class="form-line">
+                          <input type="text" id="username" value="<%=admins_data.name%>" name="name" class="form-control" placeholder="" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="" class="col-sm-5  control-label">Phone No.</label>
+                        <div class="form-line">
+                          <input type="text" name="phone" value="<%=admins_data.phone%>"class="form-control" placeholder="" required>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row clearfix">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label  class="col-sm-5  control-label">Email Address</label>
+                        <div class="form-line">
+                          <input type="email" name="email" value="<%=admins_data.email%>" class="form-control" placeholder="" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="" class="col-sm-5 control-label">Password</label>
+                        <div class="form-line">
+                          <input type="password" name="password" class="form-control" placeholder="" id="password" >
+                          <i toggle="#password"  class="ft-eye field-icon toggle-password" ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row clearfix">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label >Address</label>
+                              <div class="form-line">
+                                <input type="text" name="address" value="<%=admins_data.address%>" class="form-control" placeholder="" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="" class="">Organization Number</label>
+                              <div class="form-line">
+                                <input type="text" name="organization_number" value="<%=admins_data.organization_number%>" class="form-control" placeholder="" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="la la-check-square-o"></i> Save
+                  </button>
+                  <button type="reset" class="btn btn-danger mr-1">
+                    <i class="ft-x"></i> Reset
+                  </button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- // Basic form layout section end -->
+</div>
+</div>
+</div>
+<% include  layout/footer.ejs %>
+
+
+
+<script type="text/javascript">
+  $(".toggle-password").click(function() {
+
+  // $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $($(this).attr("toggle"));
+  if (input.attr("type") == "password") {
+    input.attr("type", "text");
+    $(this).addClass('ft-eye-off');
+    $(this).removeClass('ft-eye');
+
+  } else {
+    input.attr("type", "password");
+    $(this).addClass('ft-eye');
+    $(this).removeClass('ft-eye-off');
+    
+    
+  }
+});
+  $('#blah2').click(function(){
+   $('#profieimage').click();
+ });
+
+
+  $.validator.addMethod("lettersonly", function (value, element) {
+    return this.optional(element) || /^[^-\s][a-zA-Z ]+$/i.test(value);
+  }, 'Please enter valid name');
+  jQuery.validator.addMethod("Email", function(value, element) {
+    return this.optional( element ) || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test( value );
+  }, 'Please enter a valid email address.');
+  jQuery.validator.addMethod("countrycode", function(value, element) {
+    return this.optional( element ) ||/^\+?\d+$/.test( value );
+  },'Please enter a valid Country code.');
+  $.validator.addMethod("country", function (value, element) {
+    return this.optional(element) || /^[^-\s][a-zA-Z\s-]+$/i.test(value);
+  }, 'Please enter valid Country Name');
+  
+  $("#users").validate({
+    rules: {
+      name: {
+        required: true,
+        lettersonly: true
+      },
+      email: {
+        required: true,
+        Email: true
+      },
+      country:{
+        required:true,
+        country:true
+      },
+      city:{
+        required:true,
+      },
+      age:{
+        required:true,
+      },
+      
+    },
+    messages: {
+      name: {
+        required: "Name field is required."
+
+      },
+      email: {
+        required: "Email field is required.",
+      },
+      country: {
+        required: "Country field is required."
+      },
+      city:{
+        required:"City field is required."
+      },
+      age:{
+        required: "Age field is required"
+      }
+    }
+
+  });
+
+  var dateControler = {
+    currentDate : null
+  }
+
+  $(document).on( "change", "#txtDate",function( event, ui ) {
+    var now = new Date();
+    var selectedDate = new Date($(this).val());
+
+    if(selectedDate > now) {
+      $(this).val(dateControler.currentDate)
+    } else {
+      dateControler.currentDate = $(this).val();
+    }
+  });
+</script>

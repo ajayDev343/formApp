@@ -1,0 +1,304 @@
+﻿<% include  layout/header.ejs %>
+<% include  layout/navbar.ejs %>
+<!-- BEGIN: Content-->
+<div class="app-content content">
+	<div class="content-wrapper">
+		<div class="content-wrapper-before"></div>
+		<div class="content-header row">
+			<div class="content-header-left col-md-8 col-12 mb-2">
+				<h3 class="content-header-title mb-0 d-inline-block">Dashboard</h3></div>
+				
+			</div>
+			<div class="content-body">
+				<section id="minimal-statistics-bg">
+					
+					<div class="row">
+						
+						<div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-x-purple-red">
+								<div class="card-content">
+									<a href="../admin/userslist?ut=1" style="text-decoration:none;">
+
+										<div class="card-body">
+											<div class="media d-flex">
+												<div class="align-self-top">
+													<i class="icon-users icon-opacity text-white font-large-4 float-left"></i>
+												</div>
+												<div class="media-body text-white text-right align-self-bottom mt-3">
+													<span class="d-block mb-1 font-medium-1">Users</span>
+													<h1 class="text-white mb-0"><%=countdata.user_count%></h1>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-x-blue-green">
+								<div class="card-content">
+									<a href="../admin/inspections"  style="text-decoration:none;">
+
+										<div class="card-body">
+											<div class="media d-flex">
+												<div class="align-self-top">
+													<i class="icon-doc icon-opacity text-white font-large-4 float-left"></i>
+												</div>
+												<div class="media-body text-white text-right align-self-bottom mt-3">
+													<span class="d-block mb-1 font-medium-1">Inspections</span>
+													<h1 class="text-white mb-0"><%=countdata.inspections%></h1>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div> 
+						<!-- <div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-x-orange-yellow">
+								<div class="card-content">
+									<a href="../admin/categories"  style="text-decoration:none;">
+
+										<div class="card-body">
+											<div class="media d-flex">
+												<div class="align-self-top">
+													<i class="ft-type icon-opacity text-white font-large-4 float-left"></i>
+												</div>
+												<div class="media-body text-white text-right align-self-bottom mt-3">
+													<span class="d-block mb-1 font-medium-1">Categories</span>
+													<h1 class="text-white mb-0"><%=countdata.cat_data%></h1>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card bg-gradient-x-purple-blue">
+									<a href="../admin/sub_categories"  style="text-decoration:none;">
+
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="media d-flex">
+                                            <div class="align-self-top">
+                                                <i class="ft-type icon-opacity text-white font-large-4 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-white text-right align-self-bottom mt-3">
+                                                <span class="d-block mb-1 font-medium-1">Sub Categories</span>
+                                                <h1 class="text-white mb-0"><%=countdata.sub_cat_data%></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div> -->
+					</div>
+					<!-- <div class="row">
+						<div class="col-12">
+							<div class="card">
+			                    <div class="header">
+			                        <div class="row clearfix">
+			                        <div class="col-md-12">
+			                                <h2></h2>
+			                            </div>
+			                         </div>
+			                       
+			                    </div>
+			                    <div class="body">
+			                    	<canvas id="area-chart" style="height: 280px;  margin: 0 auto" ></canvas>
+			                    </div>
+			                </div>
+						</div>
+					</div> -->
+					<!-- <div class="row">
+						<div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-directional-warning">
+								<div class="card-content">
+									<div class="card-body">
+										<div class="media d-flex">
+											<div class="media-body text-white text-left align-self-bottom mt-3">
+												<span class="d-block mb-1 font-medium-1">New Tickets</span>
+												<h1 class="text-white mb-0">6235</h1>
+											</div>
+											<div class="align-self-top">
+												<i class="icon-tag icon-opacity text-white font-large-4 float-right"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-directional-success">
+								<div class="card-content">
+									<div class="card-body">
+										<div class="media d-flex">
+											<div class="media-body text-white text-left align-self-bottom mt-3">
+												<span class="d-block mb-1 font-medium-1">Agents</span>
+												<h1 class="text-white mb-0">486</h1>
+											</div>
+											<div class="align-self-top">
+												<i class="icon-earphones-alt icon-opacity text-white font-large-4 float-right"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-directional-danger">
+								<div class="card-content">
+									<div class="card-body">
+										<div class="media d-flex">
+											<div class="media-body text-white text-left align-self-bottom mt-3">
+												<span class="d-block mb-1 font-medium-1">Response Time</span>
+												<h1 class="text-white mb-0">18 Hrs</h1>
+											</div>
+											<div class="align-self-top">
+												<i class="icon-speedometer icon-opacity text-white font-large-4 float-right"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-12">
+							<div class="card bg-gradient-directional-info">
+								<div class="card-content">
+									<div class="card-body">
+										<div class="media d-flex">
+											<div class="media-body text-white text-left align-self-bottom mt-3">
+												<span class="d-block mb-1 font-medium-1">Closed Tickets</span>
+												<h1 class="text-white mb-0">5681</h1>
+											</div>
+											<div class="align-self-top">
+												<i class="icon-like icon-opacity text-white font-large-4 float-right"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</section>
+			</div>
+		</div>
+	</div>
+	<!-- END: Content-->
+	<%include layout/footer.ejs %>
+<!-- 	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+  <!-- <script src="../app-assets/js/scripts/charts/chartjs/line/line.js" type="text/javascript"></script> -->
+    <!-- <script src="../app-assets/js/scripts/charts/chartjs/line/line-area.js" type="text/javascript"></script> -->
+
+    <script src="../app-assets/vendors/js/charts/chart.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+// Line area chart
+/*		var	ddddd=[];
+		var	ddddd_=[];
+		$.ajax({
+             url: "/admin/get_dashboard_count",
+             type: "get",
+             data: {  },
+             cache: false,
+             success: function (response) {
+             	ddddd_=response;
+             	console.log(response);
+               
+             }, error(error) {
+               console.error(error);
+             }
+
+           });
+    $.get('/admin/get_dashboard_count', function (data) {
+
+    	const cars = new Array(data.userData);
+    	$( data.userData ).each(function( index ,Value ) {
+			ddddd.push(Value);
+		});
+         // chartData_ = JSON.parse(data);
+         console.log(ddddd)
+      });
+
+// ------------------------------
+$(window).on("load", function(){
+	var chartData_ = {};
+
+
+    //Get the context of the Chart canvas element we want to select
+    var ctx = $("#area-chart");
+
+    // Chart Options
+    var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            position: 'bottom',
+        },
+        hover: {
+            mode: 'label'
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: false,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: false,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            }]
+        },
+        title: {
+            display: true,
+            text: 'User Record'
+        }
+    };
+
+        // Chart Data
+    var chartData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
+        datasets: [{
+            label: "No. of users",
+            data: ddddd_ ,
+            backgroundColor: "rgba(255,145,73,.7)",
+            borderColor: "transparent",
+            pointBorderColor: "#5175E0",
+            pointBackgroundColor: "#FFF",
+            pointBorderWidth: 2,
+            pointHoverBorderWidth: 2,
+            pointRadius: 4,
+        }]
+    };
+
+    var config = {
+        type: 'line',
+
+        // Chart Options
+        options : chartOptions,
+
+        // Chart Data
+        data : chartData
+    };
+
+    // Create the chart
+    var areaChart = new Chart(ctx, config);
+
+});*/
+</script>

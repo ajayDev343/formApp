@@ -1,0 +1,110 @@
+ <!-- BEGIN: Footer-->
+
+   <!--  <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+        <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">2021 &copy; Copyright 
+            <a class="text-bold-800 grey darken-2" href="https://themeselection.com" target="_blank">ThemeSelection</a>
+        </span>
+            <ul class="list-inline float-md-right d-block d-md-inline-blockd-none d-lg-block mb-0">
+                <li class="list-inline-item"><a class="my-1" href="https://themeselection.com/" target="_blank"> More themes</a></li>
+                <li class="list-inline-item"><a class="my-1" href="https://themeselection.com/support" target="_blank"> Support</a></li>
+            </ul>
+        </div>
+    </footer> -->
+    <!-- END: Footer-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- <script src="../app-assets/vendors/js/charts/chartist.min.js" type="text/javascript"></script> -->
+    <!-- <script src="../app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js" type="text/javascript"></script> -->
+    <script src="../app-assets/vendors/js/timeline/horizontal-timeline.js" type="text/javascript"></script>
+    <script src="../app-assets/vendors/js/extensions/dropzone.min.js" type="text/javascript"></script>
+    <script src="../app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+    <script src="../app-assets/vendors/js/tables/datatable/datatables.min.js" type="text/javascript"></script>
+    <!-- <script src="../app-assets/vendors/js/extensions/sweetalert2.all.js" type="text/javascript"></script> -->
+
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="../app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="../app-assets/js/scripts/tables/datatables/datatable-basic.js" type="text/javascript"></script>
+
+    <!-- <script src="../app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script> -->
+    <!-- END: Page JS-->
+    <script src="../app-assets/js/scripts/pages/bootstrap-toast.js"></script>
+
+    <script src="../app-assets/vendors/js/forms/toggle/switchery.min.js" type="text/javascript"></script>
+
+    <script src="../app-assets/js/scripts/extensions/sweet-alerts.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+<script>
+       setTimeout(() => {
+        $("#msg").fadeOut('slow');
+       },3000);
+       /*setInterval(()=>{
+          $.ajax({
+             url: "get_badge_count",
+             type: "get",
+             data: {},
+             cache: false,
+             success: function (response) {
+              $(".badge_count").text(response);
+              console.log(response);
+                 // alert(response);
+               
+             }, error(error) {
+               console.error(error);
+             }
+           });
+
+       },3000);*/
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$("#back_button").click(function() {
+    // alert('a');
+    window.history.back();
+});
+$("#profieimage").change(function() {
+    var ext = $('#profieimage').val().split('.').pop().toLowerCase(); 
+     if($.inArray(ext, ['gif','png','jpg','jpeg','svg']) == -1)
+      {
+        swal ( "Oops" , "invalid Image extension!'" ,  "error" );
+        $("#blah2").attr('src','../images/user.png');
+        $("#profieimage").val("");
+      }
+      else {
+        if (this.files && this.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah2').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(this.files[0]);
+  }
+      }
+  
+}); 
+    </script>
+
+</body>
+<!-- END: Body-->
+
+</html>

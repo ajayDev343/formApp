@@ -1,0 +1,212 @@
+<% include  layout/header.ejs %>
+<% include  layout/navbar.ejs %>
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-wrapper-before"></div>
+    <div class="content-header row">
+      <div class="content-header-left col-md-12 col-12 mb-2">
+        <div style="float: right; ">
+         <a href="#" id="back_button" class="btn btn-primary m-t-15 waves-effect pull-right" style="margin-top: 0px;">Back</a>
+            </div>
+        <h3 class="content-header-title mb-0 d-inline-block"> Inspection Detail</h3>
+                           
+
+      </div>
+    </div>
+    <div class="content-body">
+      <!-- Basic form layout section start -->
+      <section id="basic-form-layouts">
+        <div class="row match-height">
+          <div class="col-md-12">
+            <div class="card" style="height: auto;">
+              <div class="card-header">
+                
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li>
+                      <a data-action="collapse">
+                        <i class="ft-minus"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a data-action="expand">
+                        <i class="ft-maximize"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content collapse show">
+                <div class="card-body">
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td style="  background:#1C8DB2;
+                                padding: 15px;
+                                ">
+                                <table cell-spacing="0" cell-pedding="0" style="width: 100%;color: #fff; background-color: #fff;
+                                ">
+                                <tbody>
+                                    <tr>
+                                        <td style="
+                                        text-align: center;
+                                        padding: 40px 0;
+                                        "><img src="<%= inspection_detail.image %>" width="100%" style="
+                                        width: 180px;
+                                        "></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cell-spacing="0" cell-pedding="0" class="dd" style="
+                            width: 100%;
+                            color: #444;
+                            border: 0;
+                            margin: 0;
+                            font-weight: 500;
+                            background: #f5f5f5;
+                            ">
+                            <tbody>
+                                <tr>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    font-weight: 600;
+                                    ">Title :</td>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    "> <%= inspection_detail.title %>  </td>
+                                </tr>
+                                <tr>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    font-weight: 600;
+                                    "> Pool type :</td>
+                                    <td style="
+                                    padding: 10px 15px;  
+                                    "> <%= inspection_detail.pool_type %></td>
+                                </tr>
+                                <tr>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    font-weight: 600;
+                                    ">Address :</td>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    ">  <%= inspection_detail.address %></td>
+                                </tr>
+                                <tr>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    font-weight: 600;
+                                    ">Description :</td>
+                                    <td style="
+                                    padding: 10px 15px;
+                                    ">  <%= inspection_detail.description %></td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <% 
+                        var pool_data=JSON.parse(inspection_detail.pool_data);
+                        if(pool_data){
+                            var count=0;
+                            for(info of pool_data){
+                                <!-- console.log(info); -->
+                                %>
+                                <hr>
+                                <table style="
+                                font-weight: bold;
+                                background: #f5f5f5;
+                                width: 100%;
+                                padding: 14px 14px 12px;
+                                font-size: 20px;
+                                ">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <%=info.title; %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cell-spacing="0" cell-pedding="0" class="dd" style="
+                            width: 100%;
+                            color: #444;
+                            border: 0;
+                            margin: 0;
+                            font-weight: 500;
+                            background: #f5f5f5;
+                            ">
+                            <tbody>
+                                <% for(d of info.data){ %>
+                                    <tr>
+                                        <td style="
+                                        padding: 10px 15px;
+                                        font-weight: 600;
+                                        "><%= d.title ;%></td>
+                                        <td style="
+                                        padding: 10px 15px;
+                                        font-weight: 600;
+
+                                        "> <%= d.value ;%>  </td>
+                                    </tr>
+                                    <%  } %>
+                                    
+                                </tbody>
+                            </table>
+                            <%  }} %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                 </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+</div>
+
+<div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <!-- <h4 class="modal-title" id="myModalLabel">Beautiful Mountains</h4> -->
+        </div>
+            <div class="modal-body">
+                <img src="" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+     <script src="https://code.jquery.com/jquery.js"></script>
+
+<script>
+     $(document).ready(function() {
+    var $lightbox = $('#lightbox');
+    $('[data-target="#lightbox"]').on('click', function(event) {
+        var $img = $(this).find('img'), 
+            src = $img.attr('src'),
+            alt = $img.attr('alt'),
+            css = {
+                'maxWidth': $(window).width() - 100,
+                'maxHeight': $(window).height() - 100
+            };
+        $lightbox.find('img').attr('src', src);
+        $lightbox.find('img').attr('alt', alt);
+        $lightbox.find('img').css(css);
+    });
+    $lightbox.on('shown.bs.modal', function (e) {
+        var $img = $lightbox.find('img');
+        $lightbox.find('.modal-dialog').css({'width': $img.width()});
+        $lightbox.find('.close').removeClass('hidden');
+    });
+});
+     </script>
+<% include  layout/footer.ejs %>
+
