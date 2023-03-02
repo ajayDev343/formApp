@@ -212,6 +212,32 @@ module.exports = {
         }
     },
 
+    delete_Account: async function(req, res) {
+        try {
+            const required = {
+                security_key: req.headers.security_key,
+                auth_key: req.headers.auth_key,
+            };
+            const non_required = {};
+            let requestdata = await helper.vaildObject(required, non_required, res);
+            const user_data = await user.findOne({
+                where: {
+                    auth_key: requestdata.auth_key
+                }
+            });
+            if (user_data) {
+               await user_data.destroy()
+                let msg = 'Deleted Successfully';
+                let data = {};
+                jsonData.true_status(res, data, msg)
+            } else {
+                let msg = 'Invalid authorization key';
+                jsonData.invalid_status(res, msg)
+            }
+        } catch (error) {
+            jsonData.wrong_status(res, error)
+        }
+    },
     signUp: async function (req, res) {
 		try {
 			const required = {

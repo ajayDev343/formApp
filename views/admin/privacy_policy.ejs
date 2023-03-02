@@ -1,5 +1,5 @@
-<% include  layout/header.ejs %>
-<% include  layout/navbar.ejs %>
+<%- include('layout/header.ejs'); %>
+<%- include('layout/navbar.ejs'); %>
 
 <div class="app-content content">
   <div class="content-wrapper">
@@ -72,8 +72,8 @@
       </div>
     </div>
   </div>
-    <% include  layout/footer.ejs %>
-<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+  <%- include('layout/footer.ejs'); %>
+  <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 <script>
    CKEDITOR.replace( 'policy' );
    CKEDITOR.config.height = 400;

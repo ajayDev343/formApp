@@ -89,6 +89,7 @@
 
 		app.route('/api/signIn').post(api.login);
 		app.route('/api/logout').post(api.logout);
+		app.route('/api/deleteAcc').delete(api.delete_Account);
 		app.route('/api/signUp').post(api.signUp);
         app.route('/api/editprofile').post(api.editprofile);
         app.route('/api/forgot_password').post(api.forgot_password); 
