@@ -42,8 +42,8 @@ app.use(function(req, res, next) {
 
 
 
-http.listen(3214, function () {
-    console.log('Node app is running on port 3214');
+http.listen(3000, function () {
+    console.log('Node app is running on port 3000');
 });
 
 
