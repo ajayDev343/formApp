@@ -244,12 +244,12 @@ module.exports = {
 				security_key: req.headers.security_key,
 				email: req.body.email,
                 username: req.body.username,
-				dob: req.body.dob,
 				password: req.body.password,
                 gender: req.body.gender,
 				register_time: Math.floor(new Date().getTime() / 1000),
 			};
 			const non_required = {
+				dob: req.body.dob,
 				phone: req.body.phone,
 				eyeColor: req.body.eyeColor,
 				hairColor: req.body.hairColor,
@@ -336,8 +336,7 @@ module.exports = {
                 auth_key: req.headers.auth_key,
                 email: req.body.email,
                 username: req.body.username,
-                dob: req.body.dob,
-                password: req.body.password,
+                // password: req.body.password,
                 gender: req.body.gender,
                 register_time: Math.floor(new Date().getTime() / 1000),
             };
